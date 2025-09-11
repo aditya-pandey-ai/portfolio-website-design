@@ -3,9 +3,83 @@
 import React from "react"
 
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { Github, Linkedin, Mail, ExternalLink, Download, Award, TrendingUp, Users, Code } from "lucide-react"
 import { useEffect, useState } from "react"
+
+const PlayStationCircle = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    strokeWidth="2"
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M12 21a9 9 0 0 0 9 -9a9 9 0 0 0 -9 -9a9 9 0 0 0 -9 9a9 9 0 0 0 9 9z" />
+    <path d="M12 12m-4.5 0a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0 -9 0" />
+  </svg>
+)
+
+const PlayStationSquare = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    strokeWidth="2"
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M12 21a9 9 0 0 0 9 -9a9 9 0 0 0 -9 -9a9 9 0 0 0 -9 9a9 9 0 0 0 9 9z" />
+    <path d="M8 8m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z" />
+  </svg>
+)
+
+const PlayStationTriangle = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    strokeWidth="2"
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M12 21a9 9 0 0 0 9 -9a9 9 0 0 0 -9 -9a9 9 0 0 0 -9 9a9 9 0 0 0 9 9z" />
+    <path d="M7.5 15h9l-4.5 -8z" />
+  </svg>
+)
+
+const FerrariLogo = () => (
+  <svg width="24" height="24" viewBox="0 0 100 100" fill="currentColor">
+    <path d="M20 30h60l-10 20H30l-10-20z M25 55h50l-5 15H30l-5-15z" />
+  </svg>
+)
+
+const LeMansLogo = () => (
+  <svg width="24" height="24" viewBox="0 0 100 100" fill="currentColor">
+    <rect x="10" y="20" width="80" height="60" rx="5" />
+    <text x="50" y="55" textAnchor="middle" fontSize="12" fill="white">
+      24
+    </text>
+  </svg>
+)
+
+const SpaCircuit = () => (
+  <svg width="24" height="24" viewBox="0 0 100 100" stroke="currentColor" fill="none" strokeWidth="2">
+    <path d="M10 50 Q30 20 50 50 Q70 80 90 50" />
+  </svg>
+)
 
 const AnimatedName = () => {
   const [isHovered, setIsHovered] = useState(false)
@@ -136,6 +210,15 @@ export default function Portfolio() {
     }
   }
 
+  const floatingIcons = [
+    { Component: PlayStationCircle, id: 1 },
+    { Component: PlayStationSquare, id: 2 },
+    { Component: PlayStationTriangle, id: 3 },
+    { Component: FerrariLogo, id: 4 },
+    { Component: LeMansLogo, id: 5 },
+    { Component: SpaCircuit, id: 6 },
+  ]
+
   const projects = [
     {
       title: "Real-Time Cricket Ball Detection & Tracking",
@@ -186,57 +269,64 @@ export default function Portfolio() {
   ]
 
   return (
-    <div className="min-h-screen bg-white text-black relative overflow-hidden font-serif">
+    <div className="min-h-screen bg-gray-50 text-gray-800 relative overflow-hidden font-serif">
       {/* Background Pattern */}
       <div className="fixed inset-0 opacity-5 pointer-events-none">
         <div
           className="absolute inset-0"
           style={{
             backgroundImage: `
-              radial-gradient(circle at 1px 1px, black 1px, transparent 0),
-              linear-gradient(90deg, transparent 24px, rgba(0,0,0,0.1) 25px, rgba(0,0,0,0.1) 26px, transparent 27px),
-              linear-gradient(transparent 24px, rgba(0,0,0,0.1) 25px, rgba(0,0,0,0.1) 26px, transparent 27px)
+              radial-gradient(circle at 1px 1px, #6b7280 1px, transparent 0),
+              linear-gradient(90deg, transparent 24px, rgba(107,114,128,0.1) 25px, rgba(107,114,128,0.1) 26px, transparent 27px),
+              linear-gradient(transparent 24px, rgba(107,114,128,0.1) 25px, rgba(107,114,128,0.1) 26px, transparent 27px)
             `,
             backgroundSize: "25px 25px, 50px 50px, 50px 50px",
           }}
         />
       </div>
 
-      {/* Floating newspaper elements */}
-      <div className="fixed inset-0 opacity-3 pointer-events-none overflow-hidden">
-        <div className="absolute top-20 left-10 w-32 h-1 bg-black transform rotate-12 animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-24 h-1 bg-black transform -rotate-6 animate-pulse delay-1000"></div>
-        <div className="absolute bottom-40 left-20 w-20 h-1 bg-black transform rotate-45 animate-pulse delay-2000"></div>
-        <div className="absolute bottom-20 right-10 w-28 h-1 bg-black transform -rotate-12 animate-pulse delay-3000"></div>
+      <div className="fixed inset-0 opacity-40 pointer-events-none overflow-hidden">
+        {floatingIcons.map((icon, index) => (
+          <div
+            key={icon.id}
+            className={`absolute text-gray-500 floating-icon-${index + 1}`}
+            style={{
+              left: `${Math.random() * 90 + 5}%`,
+              top: `${Math.random() * 90 + 5}%`,
+            }}
+          >
+            <icon.Component />
+          </div>
+        ))}
       </div>
 
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b-4 border-black">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b-4 border-gray-700">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <AnimatedName />
             <div className="flex items-center space-x-8">
-              <nav className="flex space-x-8 text-sm font-medium uppercase tracking-wide">
+              <nav className="flex space-x-8 text-sm font-medium uppercase tracking-wide font-sans">
                 <button
                   onClick={() => scrollToSection("hero")}
-                  className="transition-all duration-300 hover:scale-105 cursor-pointer hover:text-gray-600"
+                  className="transition-all duration-300 hover:scale-105 cursor-pointer hover:text-gray-500 text-gray-700"
                 >
                   About
                 </button>
                 <button
                   onClick={() => scrollToSection("projects")}
-                  className="transition-all duration-300 hover:scale-105 cursor-pointer hover:text-gray-600"
+                  className="transition-all duration-300 hover:scale-105 cursor-pointer hover:text-gray-500 text-gray-700"
                 >
                   Projects
                 </button>
                 <button
                   onClick={() => scrollToSection("skills")}
-                  className="transition-all duration-300 hover:scale-105 cursor-pointer hover:text-gray-600"
+                  className="transition-all duration-300 hover:scale-105 cursor-pointer hover:text-gray-500 text-gray-700"
                 >
                   Skills
                 </button>
                 <button
                   onClick={() => scrollToSection("contact")}
-                  className="transition-all duration-300 hover:scale-105 cursor-pointer hover:text-gray-600"
+                  className="transition-all duration-300 hover:scale-105 cursor-pointer hover:text-gray-500 text-gray-700"
                 >
                   Contact
                 </button>
@@ -256,15 +346,15 @@ export default function Portfolio() {
         }}
       >
         {/* Subtle texture overlay */}
-        <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-transparent via-gray-100 to-transparent"></div>
+        <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-transparent via-gray-300 to-transparent"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
-              <div className="border-l-4 border-black pl-6 mb-8 overflow-hidden">
-                <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-4 animate-pulse font-serif">
+              <div className="border-l-4 border-gray-700 pl-6 mb-8 overflow-hidden">
+                <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-4 animate-pulse font-serif text-gray-800">
                   BUILDING INTELLIGENT
                   <br />
-                  <span className="italic bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent">
+                  <span className="italic bg-gradient-to-r from-gray-700 to-gray-500 bg-clip-text text-transparent">
                     AI SYSTEMS
                   </span>
                 </h2>
@@ -273,13 +363,13 @@ export default function Portfolio() {
               <div className="flex flex-wrap gap-4 mb-8">
                 <Button
                   onClick={() => scrollToSection("projects")}
-                  className="bg-black text-white hover:bg-gray-800 px-8 py-3 transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  className="bg-gray-700 text-white hover:bg-gray-600 px-8 py-3 transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 >
                   View Projects
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-black text-black hover:bg-black hover:text-white px-8 py-3 bg-transparent transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  className="border-gray-700 text-gray-700 hover:bg-gray-700 hover:text-white px-8 py-3 bg-transparent transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   asChild
                 >
                   <a href="#" target="_blank" rel="noreferrer">
@@ -290,7 +380,7 @@ export default function Portfolio() {
               </div>
 
               <div className="space-y-6">
-                <div className="border-l-4 border-gray-300 pl-6">
+                <div className="border-l-4 border-gray-500 pl-6">
                   <p className="text-lg text-gray-600 italic leading-relaxed font-sans">
                     "I don't just build AI models—I craft intelligent systems that think, learn, and solve real
                     problems. Every line of code is a step toward making machines truly understand our world."
@@ -298,13 +388,13 @@ export default function Portfolio() {
                 </div>
 
                 <div className="flex items-center space-x-6">
-                  <span className="text-sm font-medium uppercase tracking-wide text-gray-500">Connect:</span>
+                  <span className="text-sm font-medium uppercase tracking-wide text-gray-500 font-sans">Connect:</span>
                   <div className="flex space-x-4">
                     <a
                       href="https://github.com/aditya-pandey-ai"
                       target="_blank"
                       rel="noreferrer"
-                      className="p-2 border border-gray-300 hover:border-black hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-110"
+                      className="p-2 border border-gray-500 hover:border-gray-700 hover:bg-gray-700 hover:text-white transition-all duration-300 transform hover:scale-110"
                     >
                       <Github className="w-5 h-5" />
                     </a>
@@ -312,28 +402,28 @@ export default function Portfolio() {
                       href="https://linkedin.com/in/ap2304"
                       target="_blank"
                       rel="noreferrer"
-                      className="p-2 border border-gray-300 hover:border-black hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-110"
+                      className="p-2 border border-gray-500 hover:border-gray-700 hover:bg-gray-700 hover:text-white transition-all duration-300 transform hover:scale-110"
                     >
                       <Linkedin className="w-5 h-5" />
                     </a>
                     <a
                       href="mailto:pandey.aditya2304@gmail.com"
-                      className="p-2 border border-gray-300 hover:border-black hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-110"
+                      className="p-2 border border-gray-500 hover:border-gray-700 hover:bg-gray-700 hover:text-white transition-all duration-300 transform hover:scale-110"
                     >
                       <Mail className="w-5 h-5" />
                     </a>
                   </div>
                 </div>
 
-                <div className="border-2 border-black p-6 bg-white">
-                  <h4 className="font-bold text-lg uppercase tracking-wide mb-4 border-b border-gray-300 pb-2 font-sans">
+                <div className="border-2 border-gray-700 p-6 bg-white">
+                  <h4 className="font-bold text-lg uppercase tracking-wide mb-4 border-b border-gray-500 pb-2 font-serif text-gray-800">
                     What I'm Building Right Now
                   </h4>
                   <div className="space-y-3">
                     <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-gray-600 rounded-full mt-2 flex-shrink-0"></div>
                       <div>
-                        <p className="font-medium text-sm font-sans">Autonomous AI Agents</p>
+                        <p className="font-medium text-sm font-sans text-gray-800">Autonomous AI Agents</p>
                         <p className="text-xs text-gray-600 font-sans">
                           Teaching machines to make decisions without human intervention—it's like raising digital
                           children
@@ -341,18 +431,18 @@ export default function Portfolio() {
                       </div>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-gray-500 rounded-full mt-2 flex-shrink-0"></div>
                       <div>
-                        <p className="font-medium text-sm font-sans">Real-time Computer Vision</p>
+                        <p className="font-medium text-sm font-sans text-gray-800">Real-time Computer Vision</p>
                         <p className="text-xs text-gray-600 font-sans">
                           Making computers see and understand the world as fast as humans do (sometimes faster)
                         </p>
                       </div>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
                       <div>
-                        <p className="font-medium text-sm font-sans">Scalable Data Pipelines</p>
+                        <p className="font-medium text-sm font-sans text-gray-800">Scalable Data Pipelines</p>
                         <p className="text-xs text-gray-600 font-sans">
                           Building the invisible infrastructure that powers intelligent decisions at scale
                         </p>
@@ -364,36 +454,37 @@ export default function Portfolio() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white border-2 border-black p-6 transform transition-all duration-500 hover:scale-105 hover:shadow-xl">
+              <div className="bg-white border-2 border-gray-700 p-6 transform transition-all duration-500 hover:scale-105 hover:shadow-xl">
                 <div className="flex flex-col items-center text-center">
                   <img
                     src="/data-scientist-headshot.png"
                     alt="Aditya Pandey"
-                    className="w-32 h-32 rounded-full border-4 border-black mb-4 object-cover"
+                    className="w-32 h-32 rounded-full border-4 border-gray-700 mb-4 object-cover"
                   />
-                  <h3 className="text-xl font-bold mb-2 uppercase tracking-wide font-serif">PROFILE</h3>
-                  <div className="w-12 h-0.5 bg-black mb-4"></div>
+                  <h3 className="text-xl font-bold mb-2 uppercase tracking-wide font-serif text-gray-800">PROFILE</h3>
+                  <div className="w-12 h-0.5 bg-gray-700 mb-4"></div>
                 </div>
 
-                <article className="text-sm leading-relaxed space-y-3 font-sans">
+                <article className="text-sm leading-relaxed space-y-3 font-sans text-gray-700">
                   <p className="font-medium">
-                    <strong>Aditya Pandey</strong> isn't your typical final-year student. While others are cramming for
-                    exams, he's building AI systems that actually work in the real world.
+                    <strong className="text-gray-800">Aditya Pandey</strong> isn't your typical final-year student.
+                    While others are cramming for exams, he's building AI systems that actually work in the real world.
                   </p>
 
                   <p>
                     Currently pursuing BTech in AI/ML at Shri Ramdeobaba College, Aditya has already mastered{" "}
-                    <strong>PyTorch, TensorFlow, and the entire modern AI stack</strong>. But here's what makes him
-                    different—he doesn't just follow tutorials.
+                    <strong className="text-gray-800">PyTorch, TensorFlow, and the entire modern AI stack</strong>. But
+                    here's what makes him different—he doesn't just follow tutorials.
                   </p>
 
                   <p>
-                    His cricket ball tracking system didn't just achieve <strong>86% precision</strong> by accident. It
-                    took weeks of debugging, thousands of annotated images, and more than a few 3 AM breakthroughs.
-                    That's the kind of persistence that turns good students into great engineers.
+                    His cricket ball tracking system didn't just achieve{" "}
+                    <strong className="text-gray-800">86% precision</strong> by accident. It took weeks of debugging,
+                    thousands of annotated images, and more than a few 3 AM breakthroughs. That's the kind of
+                    persistence that turns good students into great engineers.
                   </p>
 
-                  <p className="italic border-l-2 border-black pl-3">
+                  <p className="italic border-l-2 border-gray-700 pl-3 text-gray-600">
                     "I don't build AI because it's trendy. I build it because there's something magical about teaching
                     machines to think—and I'm just getting started."
                   </p>
@@ -406,17 +497,17 @@ export default function Portfolio() {
 
       <section
         id="projects"
-        className={`py-16 px-6 relative transition-all duration-1000 bg-gray-50 text-black ${
+        className={`py-16 px-6 relative transition-all duration-1000 bg-white text-gray-900 ${
           visibleSections.has("projects") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 transform transition-all duration-700 font-serif">
-              PROJECT STORIES
+              FEATURED PROJECTS
             </h2>
             <div
-              className={`w-24 h-1 mx-auto transform transition-all duration-1000 scale-x-0 animate-pulse bg-black`}
+              className={`w-24 h-1 mx-auto transform transition-all duration-1000 scale-x-0 animate-pulse bg-gray-700`}
             ></div>
           </div>
 
@@ -424,14 +515,14 @@ export default function Portfolio() {
             {projects.map((project, index) => (
               <article
                 key={index}
-                className={`border-2 p-8 transform transition-all duration-700 hover:scale-105 hover:shadow-2xl bg-white border-black hover:border-gray-600 ${
+                className={`border-2 p-8 transform transition-all duration-700 hover:scale-105 hover:shadow-2xl bg-white border-gray-700 hover:border-gray-600 ${
                   visibleSections.has("projects") ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
                 }`}
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
-                <div className={`border-b pb-4 mb-6 group border-gray-300`}>
+                <div className={`border-b pb-4 mb-6 group border-gray-500`}>
                   <h3
-                    className={`text-2xl md:text-3xl font-bold leading-tight mb-2 transition-colors duration-300 group-hover:text-gray-600 font-serif`}
+                    className={`text-2xl md:text-3xl font-bold leading-tight mb-2 transition-colors duration-300 group-hover:text-gray-600 font-serif text-gray-800`}
                   >
                     {project.title}
                   </h3>
@@ -442,13 +533,13 @@ export default function Portfolio() {
 
                 <div className="mb-6">
                   <div
-                    className={`px-4 py-2 inline-block mb-4 transform transition-all duration-300 hover:scale-110 bg-white text-black hover:bg-gray-200`}
+                    className={`px-4 py-2 inline-block mb-4 transform transition-all duration-300 hover:scale-110 bg-white text-gray-900 hover:bg-gray-200`}
                   >
                     <span className="font-bold text-sm font-mono">{project.impact}</span>
                   </div>
                   <p className={`leading-relaxed mb-4 text-gray-700 font-sans`}>{project.description}</p>
 
-                  <div className="bg-gray-100 border-l-4 border-black p-4 mb-4">
+                  <div className="bg-gray-100 border-l-4 border-gray-700 p-4 mb-4">
                     <p className="text-sm italic text-gray-600 font-sans leading-relaxed">
                       <strong>The Real Story:</strong> {project.story}
                     </p>
@@ -459,7 +550,7 @@ export default function Portfolio() {
                   {project.metrics.map((metric, idx) => (
                     <div
                       key={idx}
-                      className={`text-center border p-3 transform transition-all duration-300 hover:scale-105 border-gray-300 hover:bg-black hover:text-white hover:border-black`}
+                      className={`text-center border p-3 transform transition-all duration-300 hover:scale-105 border-gray-500 hover:bg-gray-800 hover:text-white hover:border-gray-800`}
                       style={{ transitionDelay: `${idx * 50}ms` }}
                     >
                       <span className="font-bold text-sm">{metric}</span>
@@ -467,24 +558,11 @@ export default function Portfolio() {
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((tech, idx) => (
-                    <Badge
-                      key={tech}
-                      variant="outline"
-                      className={`transform transition-all duration-300 hover:scale-105 border-black text-black hover:bg-black hover:text-white`}
-                      style={{ transitionDelay: `${idx * 30}ms` }}
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-
                 <div className="flex gap-4">
                   <Button
                     variant="outline"
                     size="sm"
-                    className={`bg-transparent transform transition-all duration-300 hover:scale-105 border-black text-black hover:bg-black hover:text-white`}
+                    className={`bg-transparent transform transition-all duration-300 hover:scale-105 border-gray-700 text-gray-900 hover:bg-gray-800 hover:text-white`}
                     asChild
                   >
                     <a href={project.github} target="_blank" rel="noreferrer">
@@ -494,7 +572,7 @@ export default function Portfolio() {
                   </Button>
                   <Button
                     size="sm"
-                    className={`transform transition-all duration-300 hover:scale-105 bg-white text-black hover:bg-gray-200`}
+                    className={`transform transition-all duration-300 hover:scale-105 bg-white text-gray-900 hover:bg-gray-200`}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Details
@@ -508,14 +586,14 @@ export default function Portfolio() {
 
       <section
         id="skills"
-        className={`py-16 px-6 relative transition-all duration-1000 bg-white text-black ${
+        className={`py-16 px-6 relative transition-all duration-1000 bg-gray-50 text-gray-900 ${
           visibleSections.has("skills") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">TECHNICAL EXPERTISE</h2>
-            <div className={`w-24 h-1 mx-auto bg-black`}></div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 font-serif">TECHNICAL EXPERTISE</h2>
+            <div className={`w-24 h-1 mx-auto bg-gray-700`}></div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -553,7 +631,7 @@ export default function Portfolio() {
             ].map((category, index) => (
               <div
                 key={index}
-                className={`border-2 p-6 transform transition-all duration-700 hover:scale-105 hover:shadow-xl group border-black ${
+                className={`border-2 p-6 transform transition-all duration-700 hover:scale-105 hover:shadow-xl group border-gray-700 ${
                   visibleSections.has("skills")
                     ? "translate-x-0 opacity-100"
                     : index % 2 === 0
@@ -563,13 +641,13 @@ export default function Portfolio() {
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
                 <h3
-                  className={`text-xl font-bold mb-4 border-b pb-2 transition-colors duration-300 border-gray-300 font-serif`}
+                  className={`text-xl font-bold mb-4 border-b pb-2 transition-colors duration-300 border-gray-500 font-serif text-gray-800`}
                 >
                   {category.title}
                 </h3>
                 <ul className="space-y-2 text-sm font-sans">
                   {category.skills.map((skill, idx) => (
-                    <li key={idx} className="transform transition-all duration-300 hover:translate-x-2">
+                    <li key={idx} className="transform transition-all duration-300 hover:translate-x-2 text-gray-800">
                       {skill}
                     </li>
                   ))}
@@ -587,13 +665,13 @@ export default function Portfolio() {
             <h3 className="text-2xl font-bold text-center mb-8">CERTIFICATIONS</h3>
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               <div
-                className={`border p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg border-black hover:border-gray-600`}
+                className={`border p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg border-gray-700 hover:border-gray-600`}
               >
                 <h4 className="font-bold mb-2">Machine Learning Specialization</h4>
                 <p className={`text-sm text-gray-600`}>Andrew NG, Stanford University • Nov 2023</p>
               </div>
               <div
-                className={`border p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg border-black hover:border-gray-600`}
+                className={`border p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg border-gray-700 hover:border-gray-600`}
               >
                 <h4 className="font-bold mb-2">Google Cybersecurity Professional Certificate</h4>
                 <p className={`text-sm text-gray-600`}>Google Careers • Apr 2024</p>
@@ -605,13 +683,13 @@ export default function Portfolio() {
 
       <section
         id="contact"
-        className={`py-16 px-6 relative transition-all duration-1000 bg-gray-50 text-black ${
+        className={`py-16 px-6 relative transition-all duration-1000 bg-white text-gray-900 ${
           visibleSections.has("contact") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">LET'S CONNECT</h2>
-          <p className="text-xl mb-12 max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 font-serif">LET'S CONNECT</h2>
+          <p className="text-xl mb-12 max-w-2xl mx-auto font-sans">
             Passionate about building intelligent systems and ready to contribute to innovative AI projects. Available
             for internships and full-time opportunities.
           </p>
@@ -639,7 +717,7 @@ export default function Portfolio() {
             ].map((contact, index) => (
               <Button
                 key={index}
-                className={`p-6 h-auto flex-col transform transition-all duration-500 hover:scale-110 hover:rotate-1 hover:shadow-2xl bg-black text-white hover:bg-gray-800 ${
+                className={`p-6 h-auto flex-col transform transition-all duration-500 hover:scale-110 hover:rotate-1 hover:shadow-2xl bg-gray-700 text-white hover:bg-gray-600 ${
                   visibleSections.has("contact") ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
@@ -660,17 +738,17 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <footer className="border-t-4 border-black hover:bg-gray-50 py-8 px-6 transform transition-all duration-1000 relative">
+      <footer className="border-t-4 border-gray-700 hover:bg-gray-100 py-8 px-6 transform transition-all duration-1000 relative">
         {/* Subtle background pattern */}
         <div
           className="absolute inset-0 opacity-10"
           style={{
-            backgroundImage: `linear-gradient(90deg, transparent 98%, black 100%)`,
+            backgroundImage: `linear-gradient(90deg, transparent 98%, #374151 100%)`,
             backgroundSize: "50px 1px",
           }}
         />
         <div className="max-w-7xl mx-auto text-center relative z-10">
-          <p className="text-sm font-medium uppercase tracking-wide">
+          <p className="text-sm font-medium uppercase tracking-wide font-sans">
             © 2024 Aditya Pandey • Built with precision and passion for AI • All rights reserved
           </p>
         </div>

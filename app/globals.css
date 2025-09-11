@@ -128,3 +128,134 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Adding floating icon animations for background elements */
+@keyframes float-1 {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-20px) rotate(90deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(-30px) rotate(270deg);
+    opacity: 0.5;
+  }
+}
+
+@keyframes float-2 {
+  0%,
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+    opacity: 0.2;
+  }
+  33% {
+    transform: translateX(15px) translateY(-25px) rotate(120deg);
+    opacity: 0.5;
+  }
+  66% {
+    transform: translateX(-10px) translateY(-15px) rotate(240deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes float-3 {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-35px) scale(1.1) rotate(180deg);
+    opacity: 0.2;
+  }
+}
+
+@keyframes float-4 {
+  0%,
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateX(-20px) translateY(-10px) rotate(45deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(10px) translateY(-30px) rotate(90deg);
+    opacity: 0.2;
+  }
+  75% {
+    transform: translateX(-5px) translateY(-20px) rotate(135deg);
+    opacity: 0.4;
+  }
+}
+
+@keyframes float-5 {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.2;
+  }
+  40% {
+    transform: translateY(-25px) rotate(144deg);
+    opacity: 0.5;
+  }
+  80% {
+    transform: translateY(-15px) rotate(288deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes float-6 {
+  0%,
+  100% {
+    transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateX(20px) translateY(-20px) scale(0.9) rotate(60deg);
+    opacity: 0.2;
+  }
+  60% {
+    transform: translateX(-15px) translateY(-35px) scale(1.1) rotate(120deg);
+    opacity: 0.6;
+  }
+}
+
+.floating-icon-1 {
+  animation: float-1 8s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.floating-icon-2 {
+  animation: float-2 12s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+.floating-icon-3 {
+  animation: float-3 10s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+.floating-icon-4 {
+  animation: float-4 14s ease-in-out infinite;
+  animation-delay: -1s;
+}
+
+.floating-icon-5 {
+  animation: float-5 9s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+.floating-icon-6 {
+  animation: float-6 11s ease-in-out infinite;
+  animation-delay: -5s;
+}
